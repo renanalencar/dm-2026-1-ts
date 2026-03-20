@@ -22,7 +22,6 @@ export default function Index() {
   }
 
   if (isEnabled) {
-    // MyComponent = <ScrollViewApp />;
     MyComponent = <FlatListExample />;
     // MyComponent = <SectionListExample />;
   } else {
