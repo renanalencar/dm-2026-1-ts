@@ -2,16 +2,13 @@ import { SectionListExample } from "@/components/SectionListExample";
 import { ProfileScreen } from "@/screens/ProfileScreen";
 import { UpdateScreen } from "@/screens/UpdateScreen";
 import { useState } from "react";
-import { Button, StyleSheet, Switch, Text, View } from "react-native";
+import { StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-
-import { useRouter } from "expo-router";
 
 export default function Index() {
   let MyComponent;
   const [isEnabled, setIsEnabled] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-  const router = useRouter();
 
   if (isEnabled) {
     MyComponent = <SectionListExample />;
@@ -27,14 +24,6 @@ export default function Index() {
       >
         <Text style={styles.title}>Olá Turma!</Text>
         {/* <PizzaTranslator /> */}
-        <Button
-          title="Ver Atualização em Andamento"
-          onPress={() => router.push('/update')}
-        />
-        <Button
-          title="Perfil Rápido"
-          onPress={() => router.push('/profile')}
-        />
       </View>
     );
   }
