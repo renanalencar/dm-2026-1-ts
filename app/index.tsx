@@ -5,20 +5,13 @@ import { useState } from "react";
 import { Button, StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
+import { useRouter } from "expo-router";
+
 export default function Index() {
   let MyComponent;
   const [isEnabled, setIsEnabled] = useState(false);
-  const [showUpdate, setShowUpdate] = useState(false);
-  const [showProfile, setShowProfile] = useState(false);
   const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
-
-  if (showUpdate) {
-    return <UpdateScreen onBack={() => setShowUpdate(false)} />;
-  }
-
-  if (showProfile) {
-    return <ProfileScreen onBack={() => setShowProfile(false)} />;
-  }
+  const router = useRouter();
 
   if (isEnabled) {
     MyComponent = <SectionListExample />;
@@ -36,11 +29,11 @@ export default function Index() {
         {/* <PizzaTranslator /> */}
         <Button
           title="Ver Atualização em Andamento"
-          onPress={() => setShowUpdate(true)}
+          onPress={() => router.push('/update')}
         />
         <Button
           title="Perfil Rápido"
-          onPress={() => setShowProfile(true)}
+          onPress={() => router.push('/profile')}
         />
       </View>
     );

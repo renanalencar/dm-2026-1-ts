@@ -15,11 +15,7 @@ import { OtaProgress } from '@/components/OtaProgress';
 import { DarkTheme, LightTheme, type Theme } from '@/constants/theme';
 import { NEWS_LIST } from '@/data/news';
 
-type UpdateScreenProps = {
-  onBack: () => void;
-};
-
-export function UpdateScreen({ onBack }: UpdateScreenProps) {
+export function UpdateScreen() {
   const [isDark, setIsDark] = useState(false);
 
   const theme: Theme = isDark ? DarkTheme : LightTheme;
@@ -67,7 +63,6 @@ export function UpdateScreen({ onBack }: UpdateScreenProps) {
         ]}
       >
         <OtaProgress isDark={isDark} />
-        <Button title="Voltar" onPress={onBack} />
       </View>
     </SafeAreaView>
   );

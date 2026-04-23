@@ -11,11 +11,7 @@ const PROFILE_IMAGES = [
 
 const IMAGE_SIZE = 150;
 
-type ProfileScreenProps = {
-  onBack: () => void;
-};
-
-export function ProfileScreen({ onBack }: ProfileScreenProps) {
+export function ProfileScreen() {
   const [name, setName] = useState('');
   const [imageIndex, setImageIndex] = useState(0);
 
@@ -56,9 +52,7 @@ export function ProfileScreen({ onBack }: ProfileScreenProps) {
           <Button title="Salvar" onPress={handleSave} color={Colors.blue[500]} />
         </View>
 
-        <View style={styles.backButton}>
-          <Button title="Voltar" onPress={onBack} />
-        </View>
+
       </View>
     </SafeAreaView>
   );
@@ -101,7 +95,5 @@ const styles = StyleSheet.create({
     width: '100%',
     marginTop: Spacing['3xl'],
   },
-  backButton: {
-    marginTop: Spacing.md,
-  },
+
 });
