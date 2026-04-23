@@ -1,14 +1,11 @@
-import { Drawer } from "expo-router/drawer";
-import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { Tabs } from "expo-router";
 
 export default function RootLayout() {
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <Drawer>
-        <Drawer.Screen name="index" options={{ title: "Home" }} />
-        <Drawer.Screen name="update" options={{ title: "Atualização" }} />
-        <Drawer.Screen name="profile" options={{ title: "Perfil" }} />
-      </Drawer>
-    </GestureHandlerRootView>
+    <Tabs>
+      <Tabs.Screen name="index" options={{ title: "Home" }} />
+      <Tabs.Screen name="update" options={{ title: "Atualização" }} />
+      <Tabs.Screen name="profile" options={{ title: "Perfil" }} />
+    </Tabs>
   );
 }
