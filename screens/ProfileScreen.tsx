@@ -1,8 +1,9 @@
-import { useState } from 'react';
+
 import { Alert, Button, Image, StyleSheet, TextInput, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { BorderRadius, Colors, FontSize, Spacing } from '@/constants/theme';
+import { useAppStore } from '@/store/appStore';
 
 const PROFILE_IMAGES = [
   'https://i.pravatar.cc/300?img=12',
@@ -12,10 +13,10 @@ const PROFILE_IMAGES = [
 const IMAGE_SIZE = 150;
 
 export function ProfileScreen() {
-  const [name, setName] = useState('');
-  const [imageIndex, setImageIndex] = useState(0);
-
-  const toggleImage = () => setImageIndex((prev) => (prev === 0 ? 1 : 0));
+  const name = useAppStore((state) => state.userName);
+  const setName = useAppStore((state) => state.setUserName);
+  const imageIndex = useAppStore((state) => state.userImageIndex);
+  const toggleImage = useAppStore((state) => state.toggleUserImage);
 
   const handleSave = () => {
     Alert.alert('Perfil Salvo', `Nome: ${name || '(sem nome)'}`);

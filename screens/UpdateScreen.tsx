@@ -1,4 +1,4 @@
-import { useState } from 'react';
+
 import {
   ActivityIndicator,
   Button,
@@ -12,11 +12,13 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { NewsItemCard } from '@/components/NewsItem';
 import { OtaProgress } from '@/components/OtaProgress';
+import { useAppStore } from '@/store/appStore';
 import { DarkTheme, LightTheme, type Theme } from '@/constants/theme';
 import { NEWS_LIST } from '@/data/news';
 
 export function UpdateScreen() {
-  const [isDark, setIsDark] = useState(false);
+  const isDark = useAppStore((state) => state.isDark);
+  const setIsDark = useAppStore((state) => state.setIsDark);
 
   const theme: Theme = isDark ? DarkTheme : LightTheme;
 

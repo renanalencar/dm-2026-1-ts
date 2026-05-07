@@ -1,14 +1,14 @@
 import { SectionListExample } from "@/components/SectionListExample";
 import { ProfileScreen } from "@/screens/ProfileScreen";
 import { UpdateScreen } from "@/screens/UpdateScreen";
-import { useState } from "react";
+import { useAppStore } from "@/store/appStore";
 import { StyleSheet, Switch, Text, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Index() {
   let MyComponent;
-  const [isEnabled, setIsEnabled] = useState(false);
-  const toggleSwitch = () => setIsEnabled((previousState) => !previousState);
+  const isEnabled = useAppStore((state) => state.isSectionListEnabled);
+  const toggleSwitch = useAppStore((state) => state.toggleSectionList);
 
   if (isEnabled) {
     MyComponent = <SectionListExample />;
